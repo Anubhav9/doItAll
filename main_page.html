@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" href="icons8-user-male-180.png">
+    <meta name="theme-color" content="#009578"/>
+    <link rel="manifest" href="manifest.json">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="images/icons8-todo-list-100.png" alt="Icon Logo for Todo List" width="30" height="24" class="d-inline-block align-top">
+        DoItAll--A task manager for all your daily tasks
+      </a>
+    </div>
+  </nav>
+  <div class="user_form">
+      <div class="row">
+          <div class="column">
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Add the title</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">Your Privacy is our top concern</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="click_button">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+  <button type="button" class="btn btn-success" id="database_button">Fetch from Cloud/Database</button>
+
+  <div class="items_list">
+      <div class="row">
+          <ul id="items">
+
+          </ul>
+      </div>
+
+
+  </div>
+  <div class="item_database">
+      <div class="row">
+          <ul id="database_list">
+
+          </ul>
+      </div>
+  </div>
+  
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="firebase.js"></script>
+    <script src="login.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+          // Use the window load event to keep the page load performant
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').then(swReg=>{
+                console.log("Successfull");
+            }).catch(error=>{
+                console.log("Error Happened");
+                console.log(error);
+            }
+
+            );
+          });
+        }
+    </script>
+
+    
+
+    
+</body>
+</html>
